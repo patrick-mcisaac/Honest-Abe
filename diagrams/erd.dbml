@@ -1,40 +1,60 @@
 Table Politicians {
     id int [pk, increment]
-    firstName varchar
-    lastName varchar
+    name varchar [Note: 'object of names']
     phone varchar
+    district varchar
     platform varchar
-    donationId int [ref: > Donations.id]
 }
 
 Table Pacs {
     id int [pk, increment]
-    name varchar
-    amount int
-    date varchar
-    corporationId int [ref: > Corporations.id]
+    registeredName varchar
+    phone varchar
+    address varchar
 }
 
 Table Corporations {
     id int [pk, increment]
+    company varchar
+    phone varchar
+    address varchar
+}
+
+Table Legislations {
+    id int [pk, increment]
     name varchar
+    about varchar
+    registered varchar
     interestId int [ref: > Interests.id]
 }
 
-Table Bills {
-    id int [pk, increment]
-    name varchar
-    interestId int [ref: - Interests.id]
+Table PoliticianLegislations {
+    id int [pk]
     politicianId int [ref: > Politicians.id]
+    legislationId int [ref: > Legislations.id]
 }
 
-Table Donations {
+Table PacDonations {
     id int [pk, increment]
     pacId int [ref: > Pacs.id]
     politicianId int [ref: > Politicians.id]
+    amount int
+}
+
+Table CorporateInterests {
+    id int [pk, increment]
+    corporationId int [ref: > Corporations.id]
+    interestId int [ref: > Interests.id]
+}
+
+Table CorporateDonations {
+    id int [pk, increment]
+    corporationId int [ref: > Corporations.id]
+    pacId int [ref: > Pacs.id]
+    amount int
 }
 
 Table Interests {
     id int [pk, increment]
-    name int
+    about int
 }
