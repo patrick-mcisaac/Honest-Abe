@@ -1,0 +1,38 @@
+Table Politicians {
+    id int [pk, increment]
+    name varchar
+    donationId int [ref: > Donations.id]
+}
+
+Table Pacs {
+    id int [pk, increment]
+    name varchar
+    amount int
+    date varchar
+  
+}
+
+Table Corporations {
+    id int [pk, increment]
+    name varchar
+    interestId int [ref: > Interests.id]
+}
+
+Table Bills {
+    id int [pk, increment]
+    name varchar
+    interestId int [ref: - Interests.id]
+    politicianId int [ref: > Politicians.id]
+}
+
+Table Donations {
+    id int [pk, increment]
+    pacId int [ref: > Pacs.id]
+    politicianId int [ref: > Politicians.id]
+    corporationId int [ref: > Corporations.id]
+}
+
+Table Interests {
+    id int [pk, increment]
+    name int
+}
