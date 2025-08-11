@@ -1,6 +1,9 @@
 Table Politicians {
     id int [pk, increment]
-    name varchar
+    firstName varchar
+    lastName varchar
+    phone varchar
+    platform varchar
     donationId int [ref: > Donations.id]
 }
 
