@@ -26,7 +26,7 @@ export const PacList = async () => {
 				filteredCorp =>
 					`<li>${
 						filteredCorp.corporation.company
-					} ($${filteredCorp.amount.toLocaleString("en-US", {
+					} (${filteredCorp.amount.toLocaleString("en-US", {
 						style: "currency",
 						currency: "USD"
 					})})</li>`
