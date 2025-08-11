@@ -9,7 +9,7 @@ Table Pacs {
     name varchar
     amount int
     date varchar
-  
+    corporationId int [ref: > Corporations.id]
 }
 
 Table Corporations {
@@ -29,7 +29,6 @@ Table Donations {
     id int [pk, increment]
     pacId int [ref: > Pacs.id]
     politicianId int [ref: > Politicians.id]
-    corporationId int [ref: > Corporations.id]
 }
 
 Table Interests {
